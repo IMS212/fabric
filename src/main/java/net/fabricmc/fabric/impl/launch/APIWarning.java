@@ -27,8 +27,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public final class APIWarning {
 	public static void main(String[] args) {
 		Locale defaultLocale = Locale.getDefault();
-		ResourceBundle WarningAPI = ResourceBundle.getBundle("lang/WarningAPI", defaultLocale);
-		String message = WarningAPI.getString("api.warning");
+		String message = ResourceBundle.getBundle("lang/WarningAPI", defaultLocale).getString("api.warning");
 		if (GraphicsEnvironment.isHeadless()) {
 			System.err.println(message);
 		} else {
