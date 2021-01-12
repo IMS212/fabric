@@ -28,16 +28,16 @@ public final class APIWarning {
 	public static void main(String[] args) {
 		Locale defaultLocale = Locale.getDefault();
 		ResourceBundle WarningAPI = ResourceBundle.getBundle("lang/WarningAPI", defaultLocale);
-		String msg = WarningAPI.getString("api.warning");
+		String message = WarningAPI.getString("api.warning");
 		if (GraphicsEnvironment.isHeadless()) {
-			System.err.println(msg);
+			System.err.println(message);
 		} else {
 			try {
 				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			} catch (ReflectiveOperationException | UnsupportedLookAndFeelException ignored) {
 				// Ignored
 			}
-			JOptionPane.showMessageDialog(null, msg);
+			JOptionPane.showMessageDialog(null, message);
 		}
 	}
 }
