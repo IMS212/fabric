@@ -27,7 +27,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 public final class APIWarning {
 	public static void main(String[] args) {
 		Locale defaultLocale = Locale.getDefault();
-		String message = ResourceBundle.getBundle("lang/WarningAPI", defaultLocale).getString("api.warning");
+		ResourceBundle bundle = ResourceBundle.getBundle("lang/WarningAPI", defaultLocale);
+		String message = bundle.getString("api.warning");
 		if (GraphicsEnvironment.isHeadless()) {
 			System.err.println(message);
 		} else {
@@ -36,7 +37,7 @@ public final class APIWarning {
 			} catch (ReflectiveOperationException | UnsupportedLookAndFeelException ignored) {
 				// Ignored
 			}
-			JOptionPane.showMessageDialog(null, message);
+			JOptionPane.showMessageDialog(null, message, bundle.getString("api.warning.title"), JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }
